@@ -29,7 +29,8 @@ int main(int argc, char* argv[]) {
         printf("of positive numbers to 32-bit binary\n");
         exit(1);
     }
-    int bit = 1 << 31; // C cannot support integers that are more than 32 bits
+    unsigned int bit = 1 << 31; // C cannot support integers that are more than 32 bits
+    int shifted = 31;
 
     // Optimization for the edge case where num is 0
     if (num == 0) {
@@ -38,14 +39,16 @@ int main(int argc, char* argv[]) {
     }
     // Find the most significant, non-zero bit
     while (!(bit & num)) {
+        shifted -= 1;
         bit = bit >> 1;
     }
     while (bit > 0) {
 
         // Get the current bit, print it, and move to 
         // next-most-significant bit
-        int temp = bit & num;
+        int temp = (bit & num) >> shifted;
         printf("%d", temp);
+        shifted -= 1;
         bit = bit >> 1;
     }
     printf("\n");
