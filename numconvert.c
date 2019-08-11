@@ -23,6 +23,7 @@ int main(int argc, char* argv[]) {
         printf("usage: ./convert [number]\n");
 	    exit(1);
     }
+
     int num = atoi(argv[1]);
     if (num < 0) {
         printf("program currently only supports conversion ");
@@ -37,11 +38,13 @@ int main(int argc, char* argv[]) {
         printf("%d", 0);
         return 0;
     }
+
     // Find the most significant, non-zero bit
     while (!(bit & num)) {
         shifted -= 1;
         bit = bit >> 1;
     }
+
     while (bit > 0) {
 
         // Get the current bit, print it, and move to 
@@ -51,6 +54,7 @@ int main(int argc, char* argv[]) {
         shifted -= 1;
         bit = bit >> 1;
     }
+    
     printf("\n");
     return 0;
 }
