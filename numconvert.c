@@ -37,9 +37,9 @@ int main(int argc, char* argv[]) {
 
         if (strcmp(argv[1], "--help") == 0) {
             printf("./numconvert\n");
-            printf("<number>          The number you would like to convert");
-            printf("<convert_from>    Numeral system of <number> (-b for binary, -x for hex, -d for decimal)");
-            printf("<convert_to>      Numeral system to convert to (-b for binary, -x for hex, -d for decimal)");
+            printf("<number>          The number you would like to convert\n");
+            printf("<convert_from>    Numeral system of <number> (-b for binary, -x for hex, -d for decimal)\n");
+            printf("<convert_to>      Numeral system to convert to (-b for binary, -x for hex, -d for decimal)\n");
             exit(1);
 
         } else {
@@ -119,7 +119,7 @@ void decimal_to_binary(char* num) {
     // Optimization for the edge case where num is 0
     if (num == 0) {
         printf("%d", 0);
-        return 0;
+        return;
     }
 
     // Find the most significant, non-zero bit
@@ -137,9 +137,8 @@ void decimal_to_binary(char* num) {
         shifted -= 1;
         bit = bit >> 1;
     }
-
-    return;
 }
+
 void binary_to_decimal(char* num) {
     printf("Coming soon!\n");
 }
@@ -147,6 +146,7 @@ void binary_to_decimal(char* num) {
 void decimal_to_hex(char* num) {
     printf("Coming soon!\n");
 }
+
 void hex_to_decimal(char* num) {
     printf("Coming soon!\n");
 }
@@ -154,6 +154,7 @@ void hex_to_decimal(char* num) {
 void hex_to_binary(char* num) {
     printf("Coming soon!\n");
 }
+
 void binary_to_hex(char* num) {
     printf("Coming soon!\n");
 }
