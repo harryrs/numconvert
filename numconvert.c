@@ -17,11 +17,11 @@
 #include <stdio.h>
 #include <string.h>
 
-void decimal_to_binary(int num);
-void binary_to_decimal(int num);
+void decimal_to_binary(char* num);
+void binary_to_decimal(char* num);
 
-void decimal_to_hex(int num);
-void hex_to_decimal(int num);
+void decimal_to_hex(char* num);
+void hex_to_decimal(char* num);
 
 void hex_to_binary(char* num);
 void binary_to_hex(char* num);
@@ -57,19 +57,57 @@ int main(int argc, char* argv[]) {
         exit(1);
     }
 
-    /*
     if (strcmp(argv[2], "-b") == 0) {
 
+        if (strcmp(argv[3], "-x") == 0) {
 
+            binary_to_hex(argv[1]);
+
+        } else if (strcmp(argv[3], "-d") == 0) {
+
+            binary_to_decimal(argv[1]);
+
+        } else {
+
+            printf("%s", argv[1]);
+        }
     } else if (strcmp(argv[2], "-x") == 0) {
 
+        if (strcmp(argv[3], "-b") == 0) {
 
+            hex_to_binary(argv[1]);
+
+        } else if (strcmp(argv[3], "-d") == 0) {
+
+            hex_to_decimal(argv[1]);
+
+        } else {
+
+            printf("%s", argv[1]);
+        }
     } else {
-        
-    }*/
 
-    int num = atoi(argv[1]);
-    if (num < 0) {
+        if (strcmp(argv[3], "-b") == 0) {
+
+            decimal_to_binary(argv[1]);
+
+        } else if (strcmp(argv[3], "-x") == 0) {
+
+            decimal_to_hex(argv[1]);
+
+        } else {
+
+            printf("%s", argv[1]);
+        }
+    }
+    printf("\n");
+    return 0;
+}
+
+void decimal_to_binary(char* num) {
+
+    int number = atoi(num);
+    if (number < 0) {
         printf("program currently only supports conversion ");
         printf("of positive numbers to 32-bit binary\n");
         exit(1);
@@ -85,7 +123,7 @@ int main(int argc, char* argv[]) {
     }
 
     // Find the most significant, non-zero bit
-    while (!(bit & num)) {
+    while (!(bit & number)) {
         shifted -= 1;
         bit = bit >> 1;
     }
@@ -94,12 +132,28 @@ int main(int argc, char* argv[]) {
 
         // Get the current bit, print it, and move to 
         // next-most-significant bit
-        int temp = (bit & num) >> shifted;
+        int temp = (bit & number) >> shifted;
         printf("%d", temp);
         shifted -= 1;
         bit = bit >> 1;
     }
-    
-    printf("\n");
-    return 0;
+
+    return;
+}
+void binary_to_decimal(char* num) {
+    printf("Coming soon!\n");
+}
+
+void decimal_to_hex(char* num) {
+    printf("Coming soon!\n");
+}
+void hex_to_decimal(char* num) {
+    printf("Coming soon!\n");
+}
+
+void hex_to_binary(char* num) {
+    printf("Coming soon!\n");
+}
+void binary_to_hex(char* num) {
+    printf("Coming soon!\n");
 }
