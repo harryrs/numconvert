@@ -29,22 +29,22 @@ void binary_to_hex(char* num);
 int main(int argc, char* argv[]) {
 
     if (argc < 2 || argc > 4 || argc == 3) {
-        printf("usage: ./convert <number> <convert_from> <convert_to>\n");
-        printf("Enter ./convert --help for more information\n");
+        printf("usage: ./numconvert <number> <convert_from> <convert_to>\n");
+        printf("Enter ./numconvert --help for more information\n");
 	    exit(1);
 
     } else if (argc == 2) {
 
         if (strcmp(argv[1], "--help") == 0) {
-            printf("./convert\n");
+            printf("./numconvert\n");
             printf("<number>          The number you would like to convert");
             printf("<convert_from>    Numeral system of <number> (-b for binary, -x for hex, -d for decimal)");
             printf("<convert_to>      Numeral system to convert to (-b for binary, -x for hex, -d for decimal)");
             exit(1);
 
         } else {
-            printf("usage: ./convert <number> <convert_from> <convert_to>\n");
-            printf("Enter ./convert --help for more information\n");
+            printf("usage: ./numconvert <number> <convert_from> <convert_to>\n");
+            printf("Enter ./numconvert --help for more information\n");
 	        exit(1);
         }
     }
@@ -53,7 +53,7 @@ int main(int argc, char* argv[]) {
         !(strcmp(argv[3], "-b") == 0 || strcmp(argv[3], "-x") == 0 || strcmp(argv[3], "-d") == 0)) {
         
         printf("Error: <convert_from> and <convert_to> arguments must be one of -b, -x, or -d\n");
-        printf("Enter ./convert --help for more information\n");
+        printf("Enter ./numconvert --help for more information\n");
         exit(1);
     }
 

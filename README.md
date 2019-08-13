@@ -7,7 +7,10 @@ Once the file has been added to your directory, compile and
 run from the command line with the following command:
 
     gcc numconvert.c -lm -std=c99 -o numconvert
-    ./numconvert [number]
+    ./numconvert [number] <convert_from> <convert_to>
+
+The <convert_from> and <convert_to> flags should be one of -b,
+-x, or -d for binary, hex, or decimal respectively.
 
 This program was created mainly as a sample of how I like to
 solve problems using code. This program was inspired by my
