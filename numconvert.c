@@ -140,7 +140,14 @@ void decimal_to_binary(char* num) {
 }
 
 void binary_to_decimal(char* num) {
-    printf("Coming soon!\n");
+    
+    int number = 0;
+    for (int i = 0; num[i] != '\0'; i += 1) {
+
+        number = number << 1;
+        number = num[i] == '1' ? number + 1 : number;
+    }
+    printf("%d", number);
 }
 
 void decimal_to_hex(char* num) {
