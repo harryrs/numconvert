@@ -144,7 +144,14 @@ void binary_to_decimal(char* num) {
 }
 
 void decimal_to_hex(char* num) {
-    printf("Coming soon!\n");
+
+    int number = atoi(num);
+    if (number < 0) {
+        printf("program currently only supports conversion ");
+        printf("of positive numbers to 32-bit binary\n");
+        exit(1);
+    }
+    printf("%x", number); // Not going to reinvent the wheel here
 }
 
 void hex_to_decimal(char* num) {

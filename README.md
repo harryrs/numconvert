@@ -1,7 +1,7 @@
 # numconvert
 
 Program to convert positive numbers in the range [0, 2^31)
-from decimal to binary
+between decimal, binary, and hexadecimal
 
 Once the file has been added to your directory, compile and
 run from the command line with the following command:
