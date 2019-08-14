@@ -162,7 +162,28 @@ void decimal_to_hex(char* num) {
 }
 
 void hex_to_decimal(char* num) {
-    printf("Coming soon!\n");
+    
+    int number = 0;
+    int bits = 0;
+    for (int i = 0; num[i] != '\0'; i += 1) {
+
+        number = number << 4;
+        if (num[i] >= '0' && num[i] <= '9') {
+
+            bits = ((int)num[i]) - 48;
+
+        } else if (num[i] >= 'a' && num[i] <= 'f') {
+
+            bits = ((int)num[i]) - 87;
+
+        } else {
+
+            printf("Error: invalid hexadecimal number (please enter a - f as lower-case)\n");
+            exit(1);
+        }
+        number = number | bits;
+    }
+    printf("%d", number);
 }
 
 void hex_to_binary(char* num) {
