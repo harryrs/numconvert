@@ -18,10 +18,10 @@
 #include <string.h>
 
 void decimal_to_binary(char* num);
-void binary_to_decimal(char* num);
+int binary_to_decimal(char* num);
 
 void decimal_to_hex(char* num);
-void hex_to_decimal(char* num);
+int hex_to_decimal(char* num);
 
 void hex_to_binary(char* num);
 void binary_to_hex(char* num);
@@ -139,15 +139,22 @@ void decimal_to_binary(char* num) {
     }
 }
 
-void binary_to_decimal(char* num) {
+int binary_to_decimal(char* num) {
     
     int number = 0;
     for (int i = 0; num[i] != '\0'; i += 1) {
 
+        if (!(num[i] == '0' || num[i] == '1')) {
+
+            printf("Error: invalid binary number\n");
+            exit(1);
+        }
         number = number << 1;
         number = num[i] == '1' ? number + 1 : number;
     }
     printf("%d", number);
+
+    return number;
 }
 
 void decimal_to_hex(char* num) {
@@ -161,7 +168,7 @@ void decimal_to_hex(char* num) {
     printf("%x", number); // Not going to reinvent the wheel here
 }
 
-void hex_to_decimal(char* num) {
+int hex_to_decimal(char* num) {
     
     int number = 0;
     int bits = 0;
@@ -184,6 +191,7 @@ void hex_to_decimal(char* num) {
         number = number | bits;
     }
     printf("%d", number);
+    return number;
 }
 
 void hex_to_binary(char* num) {
@@ -191,5 +199,8 @@ void hex_to_binary(char* num) {
 }
 
 void binary_to_hex(char* num) {
-    printf("Coming soon!\n");
+    
+    // Might as well just reuse functionality that's already been implemented
+    int number = binary_to_decimal(num);
+    printf("%x", number);
 }
