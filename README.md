@@ -1,16 +1,34 @@
 # numconvert
 
 Program to convert positive numbers in the range [0, 2^31)
-between decimal, binary, and hexadecimal
+between decimal, binary, and hexadecimal. Future additions
+to this program might include support for negative numbers
+and the conversion of the program to C++ to improve clarity
+and efficiency.
 
-Once the file has been added to your directory, compile and
-run from the command line with the following command:
+## Getting Started
+
+The project is super simple at this stage, and all that needs
+to be done is fork the repository, clone it and compile/run on
+your local machine.
+
+### Prerequisites
+
+You will need a C compiler, ideally GCC, installed to be able
+to compile and run the program. If you don't, [here](https://www.guru99.com/c-gcc-install.html) is a
+tutorial for downloading/installing GCC on Windows, Mac, and
+Linux.
+
+Once you have GCC installed and have the repository cloned on
+your local machine, compile and run with the following commands:
 
     gcc numconvert.c -lm -std=c99 -o numconvert
     ./numconvert [number] <convert_from> <convert_to>
 
 The <convert_from> and <convert_to> flags should be one of -b,
 -x, or -d for binary, hex, or decimal respectively.
+
+## Project Background
 
 This program was created mainly as a sample of how I like to
 solve problems using code. This program was inspired by my
@@ -22,12 +40,3 @@ challenge for this project by writing it in C rather than my
 preferred language, C++.
 
 Happy converting! :)
-
-UPDATE 11 August 2019
-This project is small but I am still working on it! I set a
-goal to implement support for negative numbers, as well as
-conversion from binary back to decimal by the end of August.
-This project came to a hard halt when I started getting into
-the thick of my coursework and then immediately had to focus on
-moving and starting my internship, but I'd like to keep working
-on it alongside a few other personal projects I've had in mind.
