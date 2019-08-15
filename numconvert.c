@@ -195,7 +195,38 @@ int hex_to_decimal(char* num) {
 }
 
 void hex_to_binary(char* num) {
-    printf("Coming soon!\n");
+    
+    // Want to do this check before printing anything
+    for (int i = 0; num[i] != '\0'; i += 1) {
+
+        if (!(num[i] >= '0' && num[i] <= '9') && !(num[i] >= 'a' && num[i] <= 'f')) {
+
+            printf("Error: invalid hexadecimal number (please enter a - f as lower-case)\n");
+            exit(1);
+        }
+    }
+
+    for (int i = 0; num[i] != '\0'; i += 1) {
+
+        // More efficient than converting back to decimal and then to binary
+        int bits = 0;
+        unsigned int bit_to_print = 0b1000;
+        int shifted = 3;
+
+        if (num[i] >= '0' && num[i] <= '9') {
+
+            bits = ((int)num[i]) - 48;
+
+        } else if (num[i] >= 'a' && num[i] <= 'f') {
+
+            bits = ((int)num[i]) - 87;
+        }
+        while (bit_to_print > 0) {
+
+            printf("%d", (bits & bit_to_print) >> shifted);
+            shifted = shifted >> 1;
+        }
+    }
 }
 
 void binary_to_hex(char* num) {
